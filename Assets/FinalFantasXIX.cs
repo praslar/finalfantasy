@@ -7,7 +7,8 @@ public class FinalFantasXIX : MonoBehaviour
 {
     [SerializeField] Text storyText;
     [SerializeField] State startingState;
-
+    [SerializeField] Text optionLeft;
+    [SerializeField] Text optionRight;
     State state;
 
     // Start is called before the first frame update
@@ -15,11 +16,14 @@ public class FinalFantasXIX : MonoBehaviour
     {
         state = startingState;
         storyText.text = state.GetStateText();
+        optionLeft.text = state.GetLeftOptionText();
+        optionRight.text = state.GetRightOptionText();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        var nextStates = state.GetNextStates();
+        var nextLeftOption = state;
     }
 }
